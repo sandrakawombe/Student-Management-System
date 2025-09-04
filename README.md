@@ -7,7 +7,7 @@
 cat > README.md <<'EOF'
 # Student Management System (microservices)
 
-**Rooms in our school (simple words):**
+**MICROSERVICES:**
 - `services/api-gateway` – front gate that routes requests to the right room
 - `services/service-discovery` – school map (who/where each room is)
 - `services/config-server` – shared notice board (settings)
