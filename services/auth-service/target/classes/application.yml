@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: auth-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/authdb
+    username: authuser
+    password: authpass
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # dev convenience: auto-create/update tables from entities
+    properties:
+      hibernate:
+        format_sql: true
