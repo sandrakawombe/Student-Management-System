@@ -1,4 +1,7 @@
 com/student/auth/UserAccountRepository.class
-com/student/auth/UserAccount.class
-com/student/auth/AuthServiceApplication.class
+com/student/auth/dto/RegisterRequest.class
 com/student/auth/HealthController.class
+com/student/auth/AuthController.class
+com/student/auth/UserAccount.class
+com/student/auth/AuthService.class
+com/student/auth/AuthServiceApplication.class
