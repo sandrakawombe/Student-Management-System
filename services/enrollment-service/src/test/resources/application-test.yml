@@ -1,0 +1,28 @@
+#server:
+#  port: 0
+#spring:
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+
+    spring:
+      datasource:
+        url: jdbc:h2:mem:enrollmenttest;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+        driverClassName: org.h2.Driver
+        username: sa
+        password:
+      jpa:
+        hibernate:
+          ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+jwt:
+  secret: VGhpcy1pc19qdXN0X2FuX2V4YW1wbGVfMzJieXRlc19iYXNlNjQtc3RyaW5nX2NoYW5nZS1tZQ==
+  issuer: auth-service
+downstream:
+  studentBaseUrl: http://localhost:9999
+  courseBaseUrl:  http://localhost:99981
+spring:
+  security:
+    enabled: false

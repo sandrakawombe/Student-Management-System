@@ -1,0 +1,82 @@
+#server:
+#  port: 8084
+#
+#spring:
+#  datasource:
+#    url: ${DB_URL:jdbc:postgresql://localhost:5541/enrollmentdb}
+#    username: ${DB_USER:enrolluser}
+#    password: ${DB_PASS:enrollpass}
+#  jpa:
+#    hibernate.ddl-auto: update
+#    properties.hibernate.format_sql: true
+#  kafka:
+#    bootstrap-servers: ${KAFKA_BOOTSTRAP:localhost:9092}
+#    consumer.group-id: enrollment-service
+#
+#jwt:
+#  secret: ${JWT_SECRET:change-me}
+#  issuer: auth-service
+#
+#downstream:
+#  studentBaseUrl: ${STUDENT_BASE_URL:http://localhost:8082}
+#  courseBaseUrl:  ${COURSE_BASE_URL:http://localhost:8083}
+#
+#management.endpoints.web.exposure.include: health,info
+#
+#resilience4j:
+#  circuitbreaker:
+#    instances:
+#      studentSvc: { slidingWindowSize: 10, failureRateThreshold: 50, waitDurationInOpenState: 10s }
+#      courseSvc:  { slidingWindowSize: 10, failureRateThreshold: 50, waitDurationInOpenState: 10s }
+#
+#jwt:
+#  # ✅ 32-byte Base64-encoded secret (secure)
+#  secret: ${JWT_SECRET:VGhpcy1pc19qdXN0X2FuX2V4YW1wbGVfMzJieXRlc19iYXNlNjQtc3RyaW5nX2NoYW5nZS1tZQ==}
+#  issuer: auth-service
+
+
+server:
+  port: 8084
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5541/enrollmentdb}
+    username: ${DB_USER:enrolluser}
+    password: ${DB_PASS:enrollpass}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP:localhost:9092}
+    consumer:
+      group-id: enrollment-service
+
+jwt:
+  # ✅ 32-byte Base64-encoded secret (secure)
+  secret: ${JWT_SECRET:VGhpcy1pc19qdXN0X2FuX2V4YW1wbGVfMzJieXRlc19iYXNlNjQtc3RyaW5nX2NoYW5nZS1tZQ==}
+  issuer: auth-service
+
+downstream:
+  studentBaseUrl: ${STUDENT_BASE_URL:http://localhost:8082}
+  courseBaseUrl:  ${COURSE_BASE_URL:http://localhost:8083}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      studentSvc:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+      courseSvc:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
